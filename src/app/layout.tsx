@@ -6,7 +6,7 @@ import './globals.css'
 
 export const metadata = {
   title: 'Rick and Morty Wiki',
-  description: 'Rick and Morty Wiki built with Next.js + Tailwindcss',
+  description: 'Rick and Morty Wiki built with Next.js + TailwindCSS',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
