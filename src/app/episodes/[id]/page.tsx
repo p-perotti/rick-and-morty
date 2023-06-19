@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react'
 import { Episode, getEpisode } from 'rickmortyapi'
-import { EpisodeInfo } from '@/Components/EpisodeInfo'
+import { EpisodeInfo } from '@/components/EpisodeInfo'
 
 export default function EpisodeDetail({ params }: { params: { id: string } }) {
   const [episode, setEpisode] = useState<Episode | undefined>()

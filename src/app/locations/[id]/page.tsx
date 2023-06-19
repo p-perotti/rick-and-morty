@@ -1,6 +1,6 @@
 'use client'
 
-import { LocationInfo } from '@/Components/LocationInfo'
+import { LocationInfo } from '@/components/LocationInfo'
 import { useCallback, useEffect, useState } from 'react'
 import { Location, getLocation } from 'rickmortyapi'
 

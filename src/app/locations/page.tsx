@@ -1,4 +1,4 @@
-import { LocationList } from '@/Components/LocationList'
+import { LocationList } from '@/components/LocationList'
 
 export default function Locations() {
   return <LocationList />

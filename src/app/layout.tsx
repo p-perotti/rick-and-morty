@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
-import { NavBar } from '@/Components/NavBar'
-import { Footer } from '@/Components/Footer'
+import { NavBar } from '@/components/NavBar'
+import { Footer } from '@/components/Footer'
 import { SearchContextProvider } from '@/contexts/search'
 import './globals.css'
 

@@ -1,4 +1,4 @@
-import { CharacterList } from '@/Components/CharacterList'
+import { CharacterList } from '@/components/CharacterList'
 
 export default function Characters() {
   return <CharacterList />

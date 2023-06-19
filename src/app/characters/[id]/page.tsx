@@ -1,6 +1,6 @@
 'use client'
 
-import { CharacterInfo } from '@/Components/CharacterInfo'
+import { CharacterInfo } from '@/components/CharacterInfo'
 import { useCallback, useEffect, useState } from 'react'
 import { Character, getCharacter } from 'rickmortyapi'
 
