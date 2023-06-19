@@ -1,9 +1,10 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useContext, useEffect, useState } from 'react'
 import { Location, getLocations } from 'rickmortyapi'
 import { ListContainer } from './ListContainer'
 import { LocationCard } from './LocationCard'
+import { SearchContext } from '@/contexts/search'
 
 export function LocationList() {
   const [locations, setLocations] = useState<Location[] | undefined>([])
@@ -11,13 +12,15 @@ export function LocationList() {
   const [lastPage, setLastPage] = useState<number>(0)
   const [totalResults, setTotalResults] = useState<number>(0)
 
+  const { search } = useContext(SearchContext)
+
   const fetchLocations = useCallback(async () => {
-    const response = await getLocations({ page })
+    const response = await getLocations({ page, name: search })
 
     setLocations(response.data.results)
     setLastPage(response.data.info?.pages || 0)
     setTotalResults(response.data.info?.count || 0)
-  }, [page])
+  }, [page, search])
 
   useEffect(() => {
     fetchLocations()
