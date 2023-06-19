@@ -7,11 +7,7 @@ export const SearchContext = createContext({
   setSearch: (value: string) => {},
 })
 
-interface ProviderProps {
-  children: ReactNode
-}
-
-export function SearchContextProvider({ children }: ProviderProps) {
+export function SearchContextProvider({ children }: { children: ReactNode }) {
   const [search, setSearch] = useState('')
 
   return (

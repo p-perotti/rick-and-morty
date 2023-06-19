@@ -4,13 +4,11 @@ import { CharacterInfo } from '@/Components/CharacterInfo'
 import { useCallback, useEffect, useState } from 'react'
 import { Character, getCharacter } from 'rickmortyapi'
 
-interface CharacterProps {
-  params: {
-    id: string
-  }
-}
-
-export default function CharacterDetail({ params }: CharacterProps) {
+export default function CharacterDetail({
+  params,
+}: {
+  params: { id: string }
+}) {
   const [character, setCharacter] = useState<Character | undefined>()
 
   const fetchCharacters = useCallback(async () => {

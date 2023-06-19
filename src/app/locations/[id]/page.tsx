@@ -4,13 +4,7 @@ import { LocationInfo } from '@/Components/LocationInfo'
 import { useCallback, useEffect, useState } from 'react'
 import { Location, getLocation } from 'rickmortyapi'
 
-interface LocationProps {
-  params: {
-    id: string
-  }
-}
-
-export default function LocationDetail({ params }: LocationProps) {
+export default function LocationDetail({ params }: { params: { id: string } }) {
   const [location, setLocation] = useState<Location | undefined>()
 
   const fetchLocation = useCallback(async () => {
