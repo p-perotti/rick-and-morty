@@ -1,19 +1,11 @@
-import { useCallback, useMemo } from 'react'
+import { useCallback, useContext, useMemo } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
+import { PaginationContext } from '@/contexts/pagination'
 
-interface PaginationProps {
-  page: number
-  setPage: (page: number) => void
-  lastPage: number
-  totalResults: number
-}
+export function Pagination() {
+  const { page, setPage, lastPage, totalResults } =
+    useContext(PaginationContext)
 
-export function Pagination({
-  page,
-  setPage,
-  lastPage,
-  totalResults,
-}: PaginationProps) {
   const handleToPreviousPage = useCallback(() => {
     if (lastPage > 0 && page > 1) {
       return setPage(page - 1)
@@ -45,11 +37,17 @@ export function Pagination({
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
       <div>
-        <p className="text-sm text-gray-700">
-          Showing <span className="font-medium">{resultsFrom}</span> to{' '}
-          <span className="font-medium">{resultsTo}</span> of{' '}
-          <span className="font-medium">{totalResults}</span> results
-        </p>
+        {totalResults !== 0 && (
+          <p className="text-sm text-gray-700">
+            {'Showing '}
+            <span className="font-medium">{resultsFrom}</span>
+            {' to '}
+            <span className="font-medium">{resultsTo}</span>
+            {' of '}
+            <span className="font-medium">{totalResults}</span>
+            {' results'}
+          </p>
+        )}
       </div>
       <div>
         <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm">

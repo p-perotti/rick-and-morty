@@ -5,35 +5,28 @@ import { Episode, getEpisodes } from 'rickmortyapi'
 import { ListContainer } from './ListContainer'
 import { EpisodeCard } from './EpisodeCard'
 import { SearchContext } from '@/contexts/search'
+import { PaginationContext } from '@/contexts/pagination'
 
 export function EpisodeList() {
   const [episodes, setEpisodes] = useState<Episode[] | undefined>([])
-  const [page, setPage] = useState(1)
-  const [lastPage, setLastPage] = useState<number>(0)
-  const [totalResults, setTotalResults] = useState<number>(0)
 
   const { search } = useContext(SearchContext)
+  const { page, setLastPage, setTotalResults } = useContext(PaginationContext)
 
   const fetchEpisodes = useCallback(async () => {
     const response = await getEpisodes({ page, name: search })
 
     setEpisodes(response.data.results)
-    setLastPage(response.data.info?.pages || 0)
+    setLastPage(response.data.info?.pages || 1)
     setTotalResults(response.data.info?.count || 0)
-  }, [page, search])
+  }, [page, search, setLastPage, setTotalResults])
 
   useEffect(() => {
     fetchEpisodes()
   }, [fetchEpisodes])
 
   return (
-    <ListContainer
-      title="Episodes"
-      page={page}
-      setPage={setPage}
-      lastPage={lastPage}
-      totalResults={totalResults}
-    >
+    <ListContainer title="Episodes">
       {episodes &&
         episodes.map((episode) => (
           <EpisodeCard key={episode.id} episode={episode} />

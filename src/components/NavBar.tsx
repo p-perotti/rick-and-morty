@@ -41,7 +41,7 @@ export function NavBar() {
                   src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg"
                   alt="Rick and Morty"
                 />
-                <div className="hidden md:-my-px  md:ml-6 md:flex md:w-full md:justify-center md:space-x-8">
+                <div className="hidden md:-my-px md:ml-6 md:flex md:w-full md:justify-center md:space-x-8">
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
@@ -71,7 +71,6 @@ export function NavBar() {
               </div>
             </div>
           </div>
-
           <Disclosure.Panel className="md:hidden">
             <div className="space-y-1 pb-3 pt-2">
               {navigation.map((item) => (

@@ -6,10 +6,6 @@ import { Dropdown } from './Dropdown'
 interface ListContainerProps {
   children: ReactNode
   title: string
-  page: number
-  setPage: (page: number) => void
-  lastPage: number
-  totalResults: number
   filterTitle?: string
   filterOptions?: string[]
   activeFilter?: string
@@ -19,10 +15,6 @@ interface ListContainerProps {
 export function ListContainer({
   children,
   title,
-  page,
-  setPage,
-  lastPage,
-  totalResults,
   filterTitle = '',
   filterOptions,
   activeFilter = '',
@@ -40,19 +32,20 @@ export function ListContainer({
           />
         )}
       </Header>
-
-      <div className="mx-auto max-w-2xl px-4 py-4 sm:px-8 sm:py-8 lg:max-w-7xl lg:px-8">
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {children}
+      {children ? (
+        <div className="mx-auto max-w-2xl px-4 py-4 sm:px-8 sm:py-8 lg:max-w-7xl lg:px-8">
+          <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+            {children}
+          </div>
         </div>
-      </div>
-
-      <Pagination
-        page={page}
-        setPage={setPage}
-        lastPage={lastPage}
-        totalResults={totalResults}
-      />
+      ) : (
+        <div className="flex h-16 w-full items-center justify-center">
+          <p className="text-sm text-gray-600">
+            No matches found... Please try another search.
+          </p>
+        </div>
+      )}
+      <Pagination />
     </div>
   )
 }
