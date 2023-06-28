@@ -5,7 +5,11 @@ import { InfoDetail } from './InfoDetail'
 import { BadgeLink } from './BadgeLink'
 import { getIdFromLink } from '@/util/links'
 
-export function EpisodeInfo({ episode }: { episode: Episode | undefined }) {
+interface EpisodeInfoProps {
+  episode: Episode | undefined
+}
+
+export function EpisodeInfo({ episode }: EpisodeInfoProps) {
   const characters = useMemo(() => {
     return episode?.characters.map((character) =>
       getIdFromLink(character, 'character'),

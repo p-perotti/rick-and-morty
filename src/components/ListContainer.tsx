@@ -3,18 +3,8 @@ import { Pagination } from './Pagination'
 import { Header } from './Header'
 import { Dropdown } from './Dropdown'
 
-export function ListContainer({
-  title,
-  page,
-  setPage,
-  lastPage,
-  totalResults,
-  filterTitle = '',
-  filterOptions,
-  activeFilter = '',
-  setFilter = () => null,
-  children,
-}: {
+interface ListContainerProps {
+  children: ReactNode
   title: string
   page: number
   setPage: (page: number) => void
@@ -24,8 +14,20 @@ export function ListContainer({
   filterOptions?: string[]
   activeFilter?: string
   setFilter?: (option: string) => void
-  children: ReactNode
-}) {
+}
+
+export function ListContainer({
+  children,
+  title,
+  page,
+  setPage,
+  lastPage,
+  totalResults,
+  filterTitle = '',
+  filterOptions,
+  activeFilter = '',
+  setFilter = () => null,
+}: ListContainerProps) {
   return (
     <div className="overflow-hidden rounded-lg bg-white">
       <Header title={title}>

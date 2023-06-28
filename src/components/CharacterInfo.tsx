@@ -8,11 +8,11 @@ import { BadgeLink } from './BadgeLink'
 import { StatusDisplay } from './StatusDisplay'
 import { getIdFromLink } from '@/util/links'
 
-export function CharacterInfo({
-  character,
-}: {
+interface CharacterInfoProps {
   character: Character | undefined
-}) {
+}
+
+export function CharacterInfo({ character }: CharacterInfoProps) {
   const episodes = useMemo(() => {
     return character?.episode.map((episode) =>
       getIdFromLink(episode, 'episode'),

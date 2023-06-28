@@ -1,12 +1,11 @@
 import { useMemo } from 'react'
 
-export function StatusDisplay({
-  status = '',
-  extra,
-}: {
+interface StatusDisplayProps {
   status?: string
   extra?: string
-}) {
+}
+
+export function StatusDisplay({ status = '', extra }: StatusDisplayProps) {
   const statusStyle = useMemo(() => {
     switch (status) {
       case 'Alive':

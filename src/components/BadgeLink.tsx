@@ -1,14 +1,12 @@
 import Link from 'next/link'
 
-export function BadgeLink({
-  id,
-  title,
-  href,
-}: {
+interface BadgeLinkProps {
   id: string
   title: string
   href: string
-}) {
+}
+
+export function BadgeLink({ id, title, href }: BadgeLinkProps) {
   return (
     <Link
       href={href}

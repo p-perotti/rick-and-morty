@@ -4,7 +4,13 @@ import { useCallback, useEffect, useState } from 'react'
 import { Episode, getEpisode } from 'rickmortyapi'
 import { EpisodeInfo } from '@/components/EpisodeInfo'
 
-export default function EpisodeDetail({ params }: { params: { id: string } }) {
+interface EpisodeDetailProps {
+  params: {
+    id: string
+  }
+}
+
+export default function EpisodeDetail({ params }: EpisodeDetailProps) {
   const [episode, setEpisode] = useState<Episode | undefined>()
 
   const fetchEpisode = useCallback(async () => {

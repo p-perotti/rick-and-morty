@@ -5,7 +5,11 @@ import { InfoDetail } from './InfoDetail'
 import { BadgeLink } from './BadgeLink'
 import { getIdFromLink } from '@/util/links'
 
-export function LocationInfo({ location }: { location: Location | undefined }) {
+interface LocationInfoProps {
+  location: Location | undefined
+}
+
+export function LocationInfo({ location }: LocationInfoProps) {
   const characters = useMemo(() => {
     return location?.residents.map((character) =>
       getIdFromLink(character, 'character'),

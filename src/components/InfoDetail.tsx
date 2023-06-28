@@ -1,14 +1,16 @@
 import { ReactNode } from 'react'
 
-export function InfoDetail({
-  title,
-  children,
-  isImage = false,
-}: {
-  title: string
+interface InfoDetailProps {
   children: ReactNode
+  title: string
   isImage?: boolean
-}) {
+}
+
+export function InfoDetail({
+  children,
+  title,
+  isImage = false,
+}: InfoDetailProps) {
   return (
     <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
       <dt className="text-sm font-medium leading-6 text-gray-900">{title}</dt>

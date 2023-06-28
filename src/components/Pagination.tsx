@@ -1,17 +1,19 @@
 import { useCallback, useMemo } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 
+interface PaginationProps {
+  page: number
+  setPage: (page: number) => void
+  lastPage: number
+  totalResults: number
+}
+
 export function Pagination({
   page,
   setPage,
   lastPage,
   totalResults,
-}: {
-  page: number
-  setPage: (page: number) => void
-  lastPage: number
-  totalResults: number
-}) {
+}: PaginationProps) {
   const handleToPreviousPage = useCallback(() => {
     if (lastPage > 0 && page > 1) {
       return setPage(page - 1)

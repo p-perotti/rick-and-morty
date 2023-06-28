@@ -2,21 +2,23 @@ import { ReactNode } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-export function Card({
-  type,
-  id,
-  name,
-  description,
-  image,
-  children,
-}: {
+interface CardProps {
+  children?: ReactNode
   type: string
   id: number
   name: string
   description?: string
   image?: string
-  children?: ReactNode
-}) {
+}
+
+export function Card({
+  children,
+  type,
+  id,
+  name,
+  description,
+  image,
+}: CardProps) {
   return (
     <Link href={`/${type}/${encodeURIComponent(id)}`} className="group">
       {image && (

@@ -4,12 +4,16 @@ import { Footer } from '@/components/Footer'
 import { SearchContextProvider } from '@/contexts/search'
 import './globals.css'
 
+interface RootLayoutProps {
+  children: ReactNode
+}
+
 export const metadata = {
   title: 'Rick and Morty Wiki',
   description: 'Rick and Morty Wiki built with Next.js + TailwindCSS',
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className="h-full bg-gray-100">
       <body className="flex h-screen flex-col">

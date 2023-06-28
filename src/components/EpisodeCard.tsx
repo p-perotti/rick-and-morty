@@ -1,7 +1,11 @@
 import { Episode } from 'rickmortyapi'
 import { Card } from './Card'
 
-export function EpisodeCard({ episode }: { episode: Episode }) {
+interface EpisodeCardProps {
+  episode: Episode
+}
+
+export function EpisodeCard({ episode }: EpisodeCardProps) {
   return (
     <Card
       type="episodes"

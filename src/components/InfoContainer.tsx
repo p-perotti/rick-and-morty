@@ -1,12 +1,11 @@
 import { ReactNode } from 'react'
 
-export function InfoContainer({
-  title,
-  children,
-}: {
-  title: string
+interface InfoContainerProps {
   children: ReactNode
-}) {
+  title: string
+}
+
+export function InfoContainer({ children, title }: InfoContainerProps) {
   return (
     <div className="overflow-hidden rounded-lg bg-white p-4">
       <div className="px-4 sm:px-0">

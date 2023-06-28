@@ -2,17 +2,19 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 
+interface DropdownProps {
+  title: string
+  options: string[]
+  activeOption: string
+  setOption: (option: string) => void
+}
+
 export function Dropdown({
   title,
   options,
   activeOption,
   setOption,
-}: {
-  title: string
-  options: string[]
-  activeOption: string
-  setOption: (option: string) => void
-}) {
+}: DropdownProps) {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>

@@ -2,7 +2,11 @@ import { Character } from 'rickmortyapi'
 import { Card } from './Card'
 import { StatusDisplay } from './StatusDisplay'
 
-export function CharacterCard({ character }: { character: Character }) {
+interface CharacterCardProps {
+  character: Character
+}
+
+export function CharacterCard({ character }: CharacterCardProps) {
   return (
     <Card
       type="characters"
