@@ -1,25 +1,28 @@
 'use client'
 
-import { useCallback, useContext, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Location, getLocations } from 'rickmortyapi'
 import { ListContainer } from './ListContainer'
 import { LocationCard } from './LocationCard'
-import { SearchContext } from '@/contexts/search'
-import { PaginationContext } from '@/contexts/pagination'
+import { usePagination } from '@/hooks/usePagination'
+import { useSearch } from '@/hooks/useSearch'
+import { useDebounce } from '@/hooks/useDebounce'
 
 export function LocationList() {
   const [locations, setLocations] = useState<Location[] | undefined>([])
 
-  const { search } = useContext(SearchContext)
-  const { page, setLastPage, setTotalResults } = useContext(PaginationContext)
+  const { search } = useSearch()
+  const { page, setLastPage, setTotalResults } = usePagination()
+
+  const debouncedSearch = useDebounce(search, 300)
 
   const fetchLocations = useCallback(async () => {
-    const response = await getLocations({ page, name: search })
+    const response = await getLocations({ page, name: debouncedSearch })
 
     setLocations(response.data.results)
     setLastPage(response.data.info?.pages || 0)
     setTotalResults(response.data.info?.count || 0)
-  }, [page, search, setLastPage, setTotalResults])
+  }, [page, debouncedSearch, setLastPage, setTotalResults])
 
   useEffect(() => {
     fetchLocations()

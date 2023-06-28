@@ -1,9 +1,8 @@
-import { SearchContext } from '@/contexts/search'
+import { useSearch } from '@/hooks/useSearch'
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-import { useContext } from 'react'
 
 export default function SearchInput() {
-  const { search, setSearch } = useContext(SearchContext)
+  const { search, setSearch } = useSearch()
 
   return (
     <div className="relative mx-auto">

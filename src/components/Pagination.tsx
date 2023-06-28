@@ -1,10 +1,9 @@
-import { useCallback, useContext, useMemo } from 'react'
+import { useCallback, useMemo } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
-import { PaginationContext } from '@/contexts/pagination'
+import { usePagination } from '@/hooks/usePagination'
 
 export function Pagination() {
-  const { page, setPage, lastPage, totalResults } =
-    useContext(PaginationContext)
+  const { page, setPage, lastPage, totalResults } = usePagination()
 
   const handleToPreviousPage = useCallback(() => {
     if (lastPage > 0 && page > 1) {
