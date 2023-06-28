@@ -6,17 +6,17 @@ export default function SearchInput() {
   const { search, setSearch } = useContext(SearchContext)
 
   return (
-    <div className="relative mx-auto text-gray-600">
+    <div className="relative mx-auto">
       <input
-        className="h-10 rounded-lg border-2 border-gray-300 bg-white px-3.5 pr-7 text-sm focus:outline-none search-cancel:appearance-none"
+        className="block w-full rounded-md border-0 py-1.5 pl-8 text-sm leading-6 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-800 search-cancel:appearance-none"
         type="search"
         name="search"
-        placeholder="Search"
+        placeholder="Search by name..."
         value={search}
         onChange={(event) => setSearch(event.target.value)}
       />
-      <span className="absolute right-0 top-0 mr-2 mt-2.5">
-        <MagnifyingGlassIcon className="h-5 w-5" />
+      <span className="absolute left-0 top-0 ml-2.5 mt-2.5">
+        <MagnifyingGlassIcon className="h-4 w-4 text-gray-400" />
       </span>
     </div>
   )

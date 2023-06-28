@@ -38,7 +38,7 @@ export function Dropdown({
             {options.map((option) => (
               <Menu.Item key={option}>
                 <button
-                  className={`block w-full px-4 py-2 text-sm ${
+                  className={`block w-full px-4 py-2 text-sm hover:bg-gray-100 ${
                     activeOption === option
                       ? 'bg-gray-100 text-gray-900'
                       : 'text-gray-700'
