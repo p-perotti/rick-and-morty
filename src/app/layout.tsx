@@ -9,7 +9,7 @@ interface RootLayoutProps {
 }
 
 export const metadata = {
-  title: 'Rick and Morty Wiki',
+  title: 'Rick and Morty',
   description: 'Rick and Morty app built with Next.js + TailwindCSS',
 }
 
